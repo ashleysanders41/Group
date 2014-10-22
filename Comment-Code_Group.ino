@@ -40,7 +40,9 @@ void pulseOneLed(int pixelNumber, uint32_t color, int duration) { //pixel number
   for(int i = 0; i < pulseBrightness; i+=10) {
  
  
-    strip.setBrightness(i);
+   
+      break;
+    case 2: strip.setBrightness(i);
     turnPixelOn(pixelNumber, color);
     delay(duration/2); // delay between the pulse is the duration divided by two
   }
@@ -48,40 +50,44 @@ void pulseOneLed(int pixelNumber, uint32_t color, int duration) { //pixel number
    for(int i = pulseBrightness; i > 0; i-=10) {
    
    
-    strip.setBrightness(i);
-    turnPixelOn(pixelNumber, color);
-    delay(duration/2);
+   strip.setBrightness(i); // sets brightness of the lights on the strip
+    turnPixelOn(pixelNumber, color); // Turns a certain light on (set color)
+    delay(duration/2); // durartion of how long the lights are on
+  }
+  
+   for(int i = pulseBrightness; i > 0; i-=10) { // how bright the light flashes on
+   
+   
+    strip.setBrightness(i); // sets brightness of the light strip  
+    turnPixelOn(pixelNumber, color); // Turns a certain light on (set color)
+    delay(duration/2); // duration of how long the lights are on
   }
 }
 
-int setIncrementSize(int firstNeoPixel, int lastNeoPixel, int delayDuration) {
-  int var = lastNeoPixel - firstNeoPixel;
-  switch (var) {
-    case 1:
-      
-      
-      return 10;
-      break;
-    case 2:
-      
-      
-      return 10;
-      break;
-    case 3:
-      
-      
-      return 5;
-      break;
-    case 4:
- 
- 
-    return 5;
-    break;
-    case 5:
+int setIncrementSize(int firstNeoPixel, int lastNeoPixel, int delayDuration) { // The timing between the first light and last light 
+  int var = lastNeoPixel - firstNeoPixel; // Variable between the first and last light
+  switch (var) { // switching between the lights
     
+    case 1: // first light
+
+      return 10; // return to the previous command (value)  
+      break; // exit from the loop
     
-    return 5;
-    break;
+    case 2: // second light
+      
+      return 10; // return to the previous command (value)
+      break; // exit from the loop
+    
+    case 3: // third light
+      
+      return 5; // return to the previous command (value)
+      break; // exit from the loop
+   
+    case 4: // fourth light
+ 
+     return 5; // return to the previous command (value)
+     break; // exit from the loop
+    
     default: 
       
       
