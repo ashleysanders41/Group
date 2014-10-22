@@ -101,12 +101,12 @@ int setIncrementSize(int firstNeoPixel, int lastNeoPixel, int delayDuration) { /
 int setDelayDuration(int incrementSize, int delayDuration) {
   int var = incrementSize;
   switch (var) {
-    case 10:
+    case 10: //determines which light is going to be delayed
     
     
       return delayDuration;
       break;
-    case 5:
+    case 5:   //determines which light is going to be delayed
    
    
       return delayDuration/2;
