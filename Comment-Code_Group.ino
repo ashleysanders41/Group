@@ -125,40 +125,40 @@ void pulseRangeOfLeds(int firstPixel, int lastPixel, uint32_t color, int duratio
   
   
   for(int i = 0; i < pulseBrightness; i+=increment) {
-    strip.setBrightness(i);
-    int pixel = firstPixel;
+    strip.setBrightness(i); //Changes pixel brightness
+    int pixel = firstPixel; //Controls first pixel
    
    
-    while(pixel < lastPixel) {
-      turnPixelOn(pixel, color);
-      pixel++;
-      }
-    delay(adjustedTime);
-  }
+    while(pixel < lastPixel) { //Controls sequence to last pixel
+      turnPixelOn(pixel, color); //Tells pixel when to turn on and what color
+      pixel++;  //Controls pixel
+      } //break
+    delay(adjustedTime); //Tells how long to delay
+  } //break
   
-  for(int i = pulseBrightness; i > 0; i-=increment) {
-    strip.setBrightness(i);
-    int pixel = firstPixel;
-    while(pixel < lastPixel) {
-      turnPixelOn(pixel, color);
-      pixel++;
-      }
-    delay(adjustedTime);
-  }
+  for(int i = pulseBrightness; i > 0; i-=increment) { //Controls pulse brightness and delay
+    strip.setBrightness(i); //Controls strip brightness
+    int pixel = firstPixel; //controls first pixel
+    while(pixel < lastPixel) { //Controls sequence to last pixel
+      turnPixelOn(pixel, color); //tells pixel when to turn on
+      pixel++; //controls pixel
+      } //break
+    delay(adjustedTime); //Tells how long to delay
+  } //break
   
-}
+} //break
 
 
 
 
-void turnPixelOn(int pixelNumber, uint32_t pixelColor) {
-  strip.setPixelColor(pixelNumber, pixelColor);
-  strip.show();
-}
+void turnPixelOn(int pixelNumber, uint32_t pixelColor) { //Controls pixel sequence
+  strip.setPixelColor(pixelNumber, pixelColor); //Controls pixels
+  strip.show(); //Controls which strip shows
+} //break
 
 
 
-void turnPixelOff(int pixelNumber) {
-  strip.setPixelColor(pixelNumber, 0, 0, 0);
-  strip.show();
-}
+void turnPixelOff(int pixelNumber) { //Tells pixel when to shut off
+  strip.setPixelColor(pixelNumber, 0, 0, 0); //Tells strip what color to be
+  strip.show(); //Controls which strip shows
+} //break
